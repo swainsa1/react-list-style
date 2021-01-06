@@ -41,7 +41,7 @@ class App extends Component {
 
   render () {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -67,12 +67,26 @@ class App extends Component {
     
         </div>
       );
+
+      style.backgroundColor="red";
+    }
+
+    const styleClassP = [];
+    if(this.state.persons.length <=2){
+      console.log("Adding yellow color");
+      styleClassP.push("red");
+    }
+
+    if(this.state.persons.length<=1){
+      console.log("Adding bold");
+      styleClassP.push("bold");
     }
 
     return (
       <div className="App">
         <h1>My First react app </h1>
-        <p>List of person</p>
+       
+        <p className={styleClassP.join(' ')}>List of person</p>
         <button
           style={style}
           onClick={this.togglePersonsHandler}>Toggle List</button>
